@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Loot Sheet: quickly determine what to do with your loot." />
+    <title>Loot Sheet</title>
+    <link rel="icon" type="image/svg+xml" href="/loot-sheet-demo/favicon.svg" />
+    <!-- iPhones and iPads use a PNG when the site is added to the home screen (a full-bleed copy of favicon.svg, 180x180). -->
+    <link rel="apple-touch-icon" href="/loot-sheet-demo/apple-touch-icon.png" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#065f46" />
+    <script>
+      // Pick light or dark before the page draws, so there's no white flash.
+      // Uses the choice saved by the header's theme toggle, or the system setting.
+      // Keep in sync with src/utils/theme.js.
+      try {
+        var saved = JSON.parse(localStorage.getItem('loot-sheet-demo:theme'));
+        var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', dark);
+      } catch (error) {}
+    </script>
+    <!-- Without JavaScript the theme script above doesn't run, so the message
+         follows the system light or dark setting with plain CSS. Same colors
+         as 404.html (see src/index.css). -->
+    <noscript>
+      <style>body{color:#374151;background:#f9fafb;margin:0;padding:24px;font-family:ui-sans-serif,system-ui,sans-serif}.no-script{text-align:center;background:#fff;border:1px solid #e5e7eb;border-radius:12px;max-width:28rem;margin:10vh auto 0;padding:24px}.no-script h1{color:#111827;margin:0 0 12px;font-size:1.25rem;font-weight:600}.no-script p{margin:0}@media (prefers-color-scheme:dark){body{color:oklch(85% .008 265);background:oklch(17% .01 265)}.no-script{background:oklch(21% .012 265);border-color:oklch(31% .014 265)}.no-script h1{color:oklch(95% .005 265)}}</style>
+    </noscript>
+    <script type="module" crossorigin src="/loot-sheet-demo/assets/index-D2X4JgYK.js"></script>
+    <link rel="stylesheet" crossorigin href="/loot-sheet-demo/assets/index-BMmA2Xke.css">
+  </head>
+  <body>
+    <noscript>
+      <div class="no-script" role="alert">
+        <h1>JavaScript is turned off</h1>
+        <p>The Loot Sheet needs JavaScript to show the items. Turn it on in your browser, then reload this page.</p>
+      </div>
+    </noscript>
+    <div id="root"></div>
+  </body>
+</html>
