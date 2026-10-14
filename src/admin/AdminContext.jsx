@@ -1,0 +1,304 @@
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { ADMIN_AVAILABLE, AdminContext, NO_ITEMS, REVIEWED, loadItems } from './useAdmin.js';
+import { readEdits, writeEdits } from './demoStore.js';
+import { createSuggester, TARGET_VALUES } from '../utils/suggest.js';
+import { readPreference, writePreference } from '../utils/preferences.js';
+import UndoSnackbar from './UndoSnackbar.jsx';
+
+/**
+ * Admin mode: edit prices in the table and see suggested actions.
+ *
+ * In this demo it is open to everyone. There is no server, so a save is
+ * kept in this browser (see demoStore.js) and the saved item replaces the old
+ * one in `items` here, so the page keeps its search, filters and scroll
+ * position. Nothing is sent anywhere, and the overview page can reset it.
+ *
+ * The context and the useAdmin() hook live in useAdmin.js (so this file
+ * only exports a component, which keeps editing it smooth under `npm run dev`).
+ * The table reads admin state from this context instead of props, so the
+ * memo'd item list doesn't need new props to show or hide the editors.
+ * The loot page reads `items` from here too (on the published site it's
+ * just loot.json, which loads after the page first draws: `status` is
+ * 'loading' until then, or 'failed' if the download didn't work).
+ *
+ * Every save remembers what it changed (including actions it updated on
+ * other items), and a snackbar offers to undo the latest one.
+ */
+const isPrice = (value) => value === null || (Number.isInteger(value) && value >= 0);
+const isActionList = (value) => Array.isArray(value) && value.every((action) => typeof action === 'string');
+
+/** Field -> check for its new value (the same fields the dev server used to accept). */
+const EDITABLE = {
+  avgVend: isPrice,
+  avgWhobuy: isPrice,
+  lastVerified: (value) => value === null || /^\d{4}-\d{2}-\d{2}$/.test(value),
+  verificationNotes: (value) => typeof value === 'string',
+  actions: isActionList,
+};
+
+/** Keeps one item's changes in this browser and returns the saved item. Throws on a bad field or value. */
+async function postItem(id, changes) {
+  const base = (await loadItems()).find((item) => item.id === id);
+  if (!base) throw new Error(`No item with id "${id}"`);
+  for (const [field, value] of Object.entries(changes ?? {})) {
+    if (!EDITABLE[field]) throw new Error(`${field} can't be edited here`);
+    if (!EDITABLE[field](value)) throw new Error(`Bad value for ${field}: ${JSON.stringify(value)}`);
+  }
+  const edits = readEdits();
+  edits.items[id] = { ...edits.items[id], ...changes };
+  writeEdits(edits);
+  return { ...base, ...edits.items[id] };
+}
+
+/** Keeps what a "Used For" target is worth (null removes it). */
+async function postTarget(target, value) {
+  const edits = readEdits();
+  edits.targets[target] = value;
+  writeEdits(edits);
+}
+
+/** Keeps (or, with `entry` null, removes) an item's "Keep mine" review: { actions, suggested }. */
+async function postReviewed(id, entry) {
+  const edits = readEdits();
+  edits.reviewed[id] = entry ? { id, ...entry } : null;
+  writeEdits(edits);
+}
+
+/** The built-in values with this browser's saved edits on top. */
+function withTargetEdits(base) {
+  const next = new Map(base);
+  for (const [target, value] of Object.entries(readEdits().targets)) {
+    if (value == null) next.delete(target);
+    else next.set(target, value);
+  }
+  return next;
+}
+
+function withReviewedEdits(base) {
+  const next = new Map(base);
+  for (const [id, entry] of Object.entries(readEdits().reviewed)) {
+    if (entry) next.set(id, { ...entry, id, name: next.get(id)?.name });
+    else next.delete(id);
+  }
+  return next;
+}
+
+const sameActions = (a, b) => a.length === b.length && a.every((action) => b.includes(action));
+
+/** The fields a save can change, so undo can put them all back. */
+const SAVED_FIELDS = ['avgVend', 'avgWhobuy', 'lastVerified', 'verificationNotes', 'actions'];
+const savedFields = (item) => Object.fromEntries(SAVED_FIELDS.map((field) => [field, item[field]]));
+
+/** A price as the snackbar says it: 12000 -> "12,000z", 0 -> "None", null -> "no price". */
+const priceText = (zeny) => (zeny == null ? 'no price' : zeny === 0 ? 'None' : `${zeny.toLocaleString('en-US')}z`);
+const FIELD_NAMES = { avgVend: 'Vend', avgWhobuy: 'Whobuy' };
+
+/** " · actions updated on 2 items", or nothing. */
+const actionsNote = (count) => (count ? ` · actions updated on ${count} item${count === 1 ? '' : 's'}` : '');
+
+export function AdminProvider({ children }) {
+  const [enabled, setEnabled] = useState(() => ADMIN_AVAILABLE && readPreference('admin', false));
+  const [items, setItems] = useState(NO_ITEMS);
+  const [status, setStatus] = useState('loading');
+  // What "Used For" targets are worth (use-targets.json), with this session's edits.
+  const [targets, setTargets] = useState(() => withTargetEdits(TARGET_VALUES));
+
+  // The latest items and targets, for saves that finish one after another
+  // (tabbing from Vend to Whobuy saves twice in a row).
+  const latest = useRef(items);
+  const latestTargets = useRef(targets);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadItems().then(
+      (loaded) => {
+        if (cancelled) return;
+        const edits = readEdits().items;
+        const withEdits = loaded.map((item) => (edits[item.id] ? { ...item, ...edits[item.id] } : item));
+        latest.current = withEdits;
+        setItems(withEdits);
+        setStatus('ready');
+      },
+      () => !cancelled && setStatus('failed'),
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  // The "Keep mine" reviews (reviewed-suggestions.json), with this session's changes.
+  const [reviewed, setReviewed] = useState(() => withReviewedEdits(REVIEWED));
+  const latestReviewed = useRef(reviewed);
+  // The latest save, for the undo snackbar: { id, message, undo() }.
+  const [lastChange, setLastChange] = useState(null);
+
+  /**
+   * Swaps a saved item into `items`. With `before`, remembers the item as it
+   * was before this save started (once per item), so it can be undone.
+   */
+  const replaceItem = useCallback((saved, before) => {
+    if (before && !before.has(saved.id)) before.set(saved.id, latest.current.find((item) => item.id === saved.id));
+    latest.current = latest.current.map((item) => (item.id === saved.id ? saved : item));
+    setItems(latest.current);
+    return saved;
+  }, []);
+
+  /** Saves a target's value (null removes it) and updates `targets`. */
+  const writeTarget = useCallback(async (target, value) => {
+    await postTarget(target, value);
+    const next = new Map(latestTargets.current);
+    if (value == null) next.delete(target);
+    else next.set(target, value);
+    latestTargets.current = next;
+    setTargets(next);
+  }, []);
+
+  /** Puts back items as they were (their saved fields only), without suggesting anything. */
+  const restoreItems = useCallback(async (before) => {
+    for (const [id, old] of before) replaceItem(await postItem(id, savedFields(old)));
+  }, [replaceItem]);
+
+  /**
+   * Saves the actions an item's prices now suggest, if they changed. Items
+   * with no player price yet keep their hand-set actions: the suggestion
+   * can't tell how to sell them, so it would drop Vend or NPC.
+   */
+  const applySuggestion = useCallback(async (item, replace) => {
+    const { actions, sale } = createSuggester(latest.current, latestTargets.current)(item);
+    if (sale && actions.length && !sameActions(actions, item.actions)) replace(await postItem(item.id, { actions }));
+  }, []);
+
+  /**
+   * Saves changes to one item. When a price changes, the actions its new
+   * prices suggest are saved too, replacing the old ones, so entering prices
+   * is all it takes to keep actions up to date. `description` is what the
+   * undo snackbar says for a save that isn't a price ("Verified").
+   */
+  const saveItem = useCallback(async (id, changes, description = 'saved') => {
+    const before = new Map();
+    const replace = (saved) => replaceItem(saved, before);
+    const saved = replace(await postItem(id, changes));
+    if ('avgVend' in changes || 'avgWhobuy' in changes) await applySuggestion(saved, replace);
+
+    const old = before.get(id);
+    const prices = Object.keys(FIELD_NAMES).filter((field) => field in changes);
+    const what = prices.length
+      ? prices.map((field) => `${FIELD_NAMES[field]} ${priceText(old[field])} → ${priceText(changes[field])}`).join(', ')
+      : description;
+    const actionsChanged = !sameActions(old.actions, latest.current.find((item) => item.id === id).actions);
+    setLastChange({
+      id: Date.now(),
+      message: `${saved.name}: ${what}${prices.length && actionsChanged ? ' · actions updated' : ''}`,
+      undo: () => restoreItems(before),
+    });
+  }, [applySuggestion, replaceItem, restoreItems]);
+
+  /**
+   * Saves changes to several items at once: `list` is [{ id, changes }]. They
+   * save one after another. Once
+   * every price is in, the actions the new prices suggest are saved too,
+   * since a suggestion depends on other items' prices. One Undo puts the
+   * whole batch back. `onProgress(done, total)` is called after each item.
+   * Returns { saved, actionsChanged }. If one fails, the ones saved before
+   * it stay saved (and undoable) and the error is thrown.
+   */
+  const saveItems = useCallback(async (list, description, onProgress) => {
+    const before = new Map();
+    const replace = (saved) => replaceItem(saved, before);
+    const countActionChanges = () =>
+      [...before].filter(([id, old]) => !sameActions(old.actions, latest.current.find((item) => item.id === id).actions)).length;
+    try {
+      for (const [index, { id, changes }] of list.entries()) {
+        replace(await postItem(id, changes));
+        onProgress?.(index + 1, list.length);
+      }
+      for (const { id } of list) await applySuggestion(latest.current.find((item) => item.id === id), replace);
+    } finally {
+      if (before.size) {
+        setLastChange({
+          id: Date.now(),
+          message: `${description}: ${before.size} item${before.size === 1 ? '' : 's'}${actionsNote(countActionChanges())}`,
+          undo: () => restoreItems(before),
+        });
+      }
+    }
+    return { saved: before.size, actionsChanged: countActionChanges() };
+  }, [applySuggestion, replaceItem, restoreItems]);
+
+  /**
+   * Saves what a "Used For" target is worth, then updates the actions of
+   * everything used to make it, the same way saving a price does.
+   */
+  const saveTarget = useCallback(async (target, value) => {
+    const oldValue = latestTargets.current.get(target) ?? null;
+    await writeTarget(target, value);
+    const before = new Map();
+    const parts = latest.current.filter((item) => item.uses.some((use) => use.for === target));
+    for (const part of parts) await applySuggestion(part, (saved) => replaceItem(saved, before));
+    setLastChange({
+      id: Date.now(),
+      message: `${target}: ${priceText(oldValue)} → ${priceText(value)}${actionsNote(before.size)}`,
+      undo: async () => {
+        await writeTarget(target, oldValue);
+        await restoreItems(before);
+      },
+    });
+  }, [applySuggestion, replaceItem, restoreItems, writeTarget]);
+
+  /**
+   * Writes an item's review (null removes it) and updates `reviewed`. Reviews
+   * are checked against the actions and the suggestion (see queues.js
+   * isReviewed), so nothing else needs to change with them.
+   */
+  const writeReviewed = useCallback(async (item, entry) => {
+    await postReviewed(item.id, entry);
+    const next = new Map(latestReviewed.current);
+    if (entry) next.set(item.id, { id: item.id, name: item.name, ...entry });
+    else next.delete(item.id);
+    latestReviewed.current = next;
+    setReviewed(next);
+  }, []);
+
+  /** "Keep mine": the item's actions are right, even though `suggested` differs. */
+  const saveReviewed = useCallback(async (item, suggested) => {
+    const old = latestReviewed.current.get(item.id) ?? null;
+    await writeReviewed(item, { actions: item.actions, suggested });
+    setLastChange({
+      id: Date.now(),
+      message: `${item.name}: kept ${item.actions.join(' + ') || 'no action'} (suggested ${suggested.join(' + ')})`,
+      undo: () => writeReviewed(item, old && { actions: old.actions, suggested: old.suggested }),
+    });
+  }, [writeReviewed]);
+
+  /** Takes a "Keep mine" back, so the item is listed again. */
+  const removeReviewed = useCallback(async (item) => {
+    const old = latestReviewed.current.get(item.id);
+    await writeReviewed(item, null);
+    setLastChange({
+      id: Date.now(),
+      message: `${item.name}: review removed`,
+      undo: () => writeReviewed(item, old && { actions: old.actions, suggested: old.suggested }),
+    });
+  }, [writeReviewed]);
+
+  const changeEnabled = useCallback((value) => {
+    setEnabled(value);
+    writePreference('admin', value);
+  }, []);
+
+  // Rebuilt after each save, so suggestions see the new prices.
+  const suggest = useMemo(() => createSuggester(items, targets), [items, targets]);
+
+  const value = useMemo(
+    () => ({
+      available: ADMIN_AVAILABLE, enabled, setEnabled: changeEnabled, items, status, suggest, saveItem, saveItems, targets, saveTarget,
+      reviewed, saveReviewed, removeReviewed,
+    }),
+    [enabled, changeEnabled, items, status, suggest, saveItem, saveItems, targets, saveTarget, reviewed, saveReviewed, removeReviewed],
+  );
+  return (
+    <AdminContext.Provider value={value}>
+      {children}
+      {ADMIN_AVAILABLE && <UndoSnackbar change={lastChange} />}
+    </AdminContext.Provider>
+  );
+}

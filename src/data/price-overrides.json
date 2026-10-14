@@ -1,0 +1,128 @@
+{
+  "about": "Where the server differs from its base game data. Item data follows Hercules pre-renewal by default; the lists below override it. Edit this file by hand (see CONTRIBUTING.md). Each entry needs the item's itemId and name exactly as in loot.json.",
+  "modifiedSellPrices": {
+    "about": "the server lowered these NPC sell prices. The price is the most an NPC pays: Overcharge does NOT raise it.",
+    "source": "",
+    "items": []
+  },
+  "customSellValues": {
+    "about": "NPC sell prices checked by hand for the server, where the emulators are wrong or unsure (including items confirmed to sell for 0z). This is the base price: Overcharge applies on top, like normal items.",
+    "items": []
+  },
+  "notSellableToNpc": {
+    "about": "Items NPCs won't buy on purpose (currencies, event coins). The NPC column shows ✕ instead of a price.",
+    "items": []
+  },
+  "tradeRestrictions": {
+    "about": "Items that can't be traded between players, and the emulator's trade flags we've checked. The emulators often flag items as bound when the server lets you trade them, so their flags are only a reminder to check: npm run sync:prices lists flagged items that aren't here.",
+    "notTradeable": {
+      "about": "Items players can't trade or vend on the server. Vend shows ✕ (\"Can't be traded\"). Items NPCs won't buy go in notSellableToNpc.",
+      "items": []
+    },
+    "checked": {
+      "about": "Items the emulator flags as untradeable or unsellable, checked on the server. What actually applies is in notTradeable and notSellableToNpc.",
+      "items": []
+    }
+  },
+  "npcShops": {
+    "about": "Which items NPCs sell (npcBuyable in loot.json), filled in by `npm run sync:shops`. By default that's every item in a zeny shop in Hercules' pre-renewal NPC scripts. The lists below add the server's renewal shops and its differences.",
+    "renewalShops": {
+      "about": "Renewal NPC shops the server added, read from rAthena: every zeny shop on these maps, plus any shops listed by name (shops that other NPCs open). Once a shop is checked in game, put it in extraShops instead.",
+      "maps": [
+        "mid_camp",
+        "spl_in01",
+        "spl_in02",
+        "man_in01",
+        "dic_in01"
+      ],
+      "shops": []
+    },
+    "soldByNpc": {
+      "about": "Items the server NPCs sell that aren't in the emulators' shops (use extraShops when you know the shop). Items don't need to be in loot.json.",
+      "items": []
+    },
+    "notSoldByNpc": {
+      "about": "Items the emulators' shops sell but the server's NPCs don't. Items don't need to be in loot.json.",
+      "items": []
+    },
+    "extraShops": {
+      "about": "NPC shops checked in game on the server. Every item listed here is sold by NPCs. `price` is the shop's normal price in zeny (before Discount). Items don't need to be in loot.json. Not shown on the site yet.",
+      "shops": []
+    }
+  },
+  "renewalContent": {
+    "about": "Renewal areas the server added. Drops here may be tweaked by the server, so they are NOT added automatically. `npm run sync:prices` only checks the prices of items dropped here against rAthena's renewal data and lists differences for review. When they differ, the pre-renewal price is used.",
+    "reviewedPrices": {
+      "about": "Renewal-area items whose renewal price differs, already reviewed: they keep their pre-renewal price. The sync stops listing these.",
+      "items": []
+    },
+    "areas": [
+      {
+        "name": "Splendide",
+        "spawnFile": "npc/re/mobs/fields/splendide.txt",
+        "maps": [
+          "spl_fild01",
+          "spl_fild02",
+          "spl_fild03"
+        ]
+      },
+      {
+        "name": "Manuk",
+        "spawnFile": "npc/re/mobs/fields/manuk.txt",
+        "maps": [
+          "man_fild01",
+          "man_fild02",
+          "man_fild03"
+        ]
+      },
+      {
+        "name": "Nidhogg's Nest",
+        "spawnFile": "npc/re/mobs/dungeons/nyd_dun.txt",
+        "maps": [
+          "nyd_dun01",
+          "nyd_dun02"
+        ]
+      },
+      {
+        "name": "El Dicastes",
+        "spawnFile": "npc/re/mobs/fields/dicastes.txt",
+        "maps": [
+          "dic_fild01",
+          "dic_fild02"
+        ]
+      },
+      {
+        "name": "Scaraba Dungeon",
+        "spawnFile": "npc/re/mobs/dungeons/dic_dun.txt",
+        "maps": [
+          "dic_dun01",
+          "dic_dun02",
+          "dic_dun03"
+        ]
+      },
+      {
+        "name": "Biolab 4",
+        "spawnFile": "npc/re/mobs/dungeons/lhz_dun.txt",
+        "maps": [
+          "lhz_dun04"
+        ]
+      },
+      {
+        "name": "Horror Toy Factory",
+        "source": "",
+        "monsters": [
+          2987,
+          2988,
+          2989,
+          2991,
+          2992,
+          2993,
+          2994,
+          2995,
+          2996,
+          2997
+        ]
+      }
+    ]
+  }
+}

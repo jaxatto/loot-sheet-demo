@@ -1,0 +1,1089 @@
+{
+  "about": "Random sample values for finished items that are not loot (demo data).",
+  "items": [
+    {
+      "for": "Abandoned Teddy Bear Pet Evolution",
+      "value": 2200000
+    },
+    {
+      "for": "Abysmal Knight Pet Evolution",
+      "value": 54000
+    },
+    {
+      "for": "Acid Bottle",
+      "value": 0
+    },
+    {
+      "for": "Advanced Assassin Mask",
+      "value": 0
+    },
+    {
+      "for": "Alarm Mask",
+      "value": 6600000
+    },
+    {
+      "for": "Alcohol",
+      "value": 0
+    },
+    {
+      "for": "Alice Doll",
+      "value": 4700000
+    },
+    {
+      "for": "Alicel Pet Evolution",
+      "value": 7500000
+    },
+    {
+      "for": "Aloevera",
+      "value": 230000
+    },
+    {
+      "for": "Ancient Mummy Pet Evolution",
+      "value": 0
+    },
+    {
+      "for": "Angeling Pet Evolution",
+      "value": 0
+    },
+    {
+      "for": "Anodyne",
+      "value": 31000
+    },
+    {
+      "for": "Antique Smoking Pipe",
+      "value": 47000
+    },
+    {
+      "for": "Antlers",
+      "value": 23000000
+    },
+    {
+      "for": "Anubis Helm",
+      "value": 21000000
+    },
+    {
+      "for": "Apple of Archer",
+      "value": 1300000
+    },
+    {
+      "for": "Ascending Dragon Soup",
+      "value": 24000
+    },
+    {
+      "for": "Assorted Shish Kebob",
+      "value": 88000
+    },
+    {
+      "for": "Autumn Red Tea",
+      "value": 14000000
+    },
+    {
+      "for": "Awfully Bitter Bracer",
+      "value": 7100000
+    },
+    {
+      "for": "Axe",
+      "value": 350000
+    },
+    {
+      "for": "Ayam [1]",
+      "value": 16000000
+    },
+    {
+      "for": "Baby Pacifier",
+      "value": 5000000
+    },
+    {
+      "for": "Bacsojin Pet Evolution",
+      "value": 9900000
+    },
+    {
+      "for": "Baphomet Pet Evolution",
+      "value": 14000000
+    },
+    {
+      "for": "Beanie",
+      "value": 26000000
+    },
+    {
+      "for": "Bearfoot Special",
+      "value": 71000
+    },
+    {
+      "for": "Beer Hat",
+      "value": 42000
+    },
+    {
+      "for": "Berserk",
+      "value": 67000
+    },
+    {
+      "for": "Binoculars",
+      "value": 8900000
+    },
+    {
+      "for": "Black Cat Ears",
+      "value": 0
+    },
+    {
+      "for": "Blue Hairband",
+      "value": 7200000
+    },
+    {
+      "for": "Blue Moon Loli Ruri Pet Evolution",
+      "value": 84000
+    },
+    {
+      "for": "Blue Potion",
+      "value": 0
+    },
+    {
+      "for": "Blush of Groom",
+      "value": 390000
+    },
+    {
+      "for": "Bomber Steak",
+      "value": 35000
+    },
+    {
+      "for": "Bottle Grenade",
+      "value": 210000
+    },
+    {
+      "for": "Bride Mask",
+      "value": 0
+    },
+    {
+      "for": "Bride's Corolla",
+      "value": 12000000
+    },
+    {
+      "for": "Bulb Band",
+      "value": 68000
+    },
+    {
+      "for": "Bunny Ears Hat",
+      "value": 390000
+    },
+    {
+      "for": "Caesar's Sword",
+      "value": 0
+    },
+    {
+      "for": "Candle",
+      "value": 2900000
+    },
+    {
+      "for": "Censor Bar",
+      "value": 21000000
+    },
+    {
+      "for": "Chaotic Baphomet Jr Pet Evolution",
+      "value": 43000
+    },
+    {
+      "for": "Chef Hat",
+      "value": 9900000
+    },
+    {
+      "for": "Chick Hat",
+      "value": 98000
+    },
+    {
+      "for": "Chile Shrimp Gratin",
+      "value": 2600000
+    },
+    {
+      "for": "Choco Pet Evolution",
+      "value": 14000000
+    },
+    {
+      "for": "Chocolate Mousse Cake",
+      "value": 11000000
+    },
+    {
+      "for": "Clam Soup",
+      "value": 11000000
+    },
+    {
+      "for": "Club",
+      "value": 61000
+    },
+    {
+      "for": "Combat Knife",
+      "value": 0
+    },
+    {
+      "for": "Condensed Red Potion",
+      "value": 3400000
+    },
+    {
+      "for": "Condensed White Potion",
+      "value": 610000
+    },
+    {
+      "for": "Condensed Yellow Potion",
+      "value": 14000000
+    },
+    {
+      "for": "Contaminated Wanderer Pet Evolution",
+      "value": 24000
+    },
+    {
+      "for": "Cooked Nine Tail's Tails",
+      "value": 230000
+    },
+    {
+      "for": "Cowboy Hat",
+      "value": 16000000
+    },
+    {
+      "for": "Cream Sandwich",
+      "value": 5300000
+    },
+    {
+      "for": "Crimson Rose",
+      "value": 49000
+    },
+    {
+      "for": "Cross Hat",
+      "value": 3000000
+    },
+    {
+      "for": "Crown of Ancient Queen",
+      "value": 10000000
+    },
+    {
+      "for": "Crown of Mistress",
+      "value": 1600000
+    },
+    {
+      "for": "Crunch Toast",
+      "value": 2400000
+    },
+    {
+      "for": "Cute Blue Ribbon",
+      "value": 44000
+    },
+    {
+      "for": "Cute Green Ribbon",
+      "value": 6300000
+    },
+    {
+      "for": "Cute Red Ribbon",
+      "value": 4400000
+    },
+    {
+      "for": "Cute Ribbon",
+      "value": 62000
+    },
+    {
+      "for": "Cute White Ribbon",
+      "value": 100000
+    },
+    {
+      "for": "Cutter",
+      "value": 3000000
+    },
+    {
+      "for": "Damascus",
+      "value": 1600000
+    },
+    {
+      "for": "Dark Randgris Helm",
+      "value": 950000
+    },
+    {
+      "for": "Decorative Golden Bell",
+      "value": 4200000
+    },
+    {
+      "for": "Decorative Mushroom",
+      "value": 0
+    },
+    {
+      "for": "Desert Wolf Pet Evolution",
+      "value": 18000000
+    },
+    {
+      "for": "Deviruchi Hat",
+      "value": 12000000
+    },
+    {
+      "for": "Diabolic Pet Evolution",
+      "value": 240000
+    },
+    {
+      "for": "Dirk",
+      "value": 800000
+    },
+    {
+      "for": "Dragon Breath Cocktail",
+      "value": 770000
+    },
+    {
+      "for": "Dragon Slayer",
+      "value": 86000
+    },
+    {
+      "for": "Dress Hat",
+      "value": 410000
+    },
+    {
+      "for": "Drooping Cat",
+      "value": 210000
+    },
+    {
+      "for": "Ear Muffs",
+      "value": 0
+    },
+    {
+      "for": "Earthproof Potion",
+      "value": 52000
+    },
+    {
+      "for": "Eddga Pet Evolution",
+      "value": 22000000
+    },
+    {
+      "for": "Edge",
+      "value": 2200000
+    },
+    {
+      "for": "Eggring Pet Evolution",
+      "value": 0
+    },
+    {
+      "for": "Elemental Converter (Earth)",
+      "value": 0
+    },
+    {
+      "for": "Elemental Converter (Fire)",
+      "value": 3800000
+    },
+    {
+      "for": "Elemental Converter (Wind)",
+      "value": 11000000
+    },
+    {
+      "for": "Embryo",
+      "value": 6900000
+    },
+    {
+      "for": "Evil Wing Ears",
+      "value": 91000
+    },
+    {
+      "for": "Excalibur",
+      "value": 0
+    },
+    {
+      "for": "Exorciser",
+      "value": 310000
+    },
+    {
+      "for": "Fairy Flower",
+      "value": 4400000
+    },
+    {
+      "for": "Falchion",
+      "value": 29000000
+    },
+    {
+      "for": "Fashionable Glasses",
+      "value": 95000
+    },
+    {
+      "for": "Feather Bonnet",
+      "value": 13000000
+    },
+    {
+      "for": "Festival Pumpkin Hat",
+      "value": 6200000
+    },
+    {
+      "for": "Filir's Pinions",
+      "value": 430000
+    },
+    {
+      "for": "Finger",
+      "value": 2000000
+    },
+    {
+      "for": "Fireproof Potion",
+      "value": 32000
+    },
+    {
+      "for": "Fish Head Hat",
+      "value": 830000
+    },
+    {
+      "for": "Fist",
+      "value": 520000
+    },
+    {
+      "for": "Flail",
+      "value": 8400000
+    },
+    {
+      "for": "Flamberge",
+      "value": 2100000
+    },
+    {
+      "for": "Flame Heart",
+      "value": 190000
+    },
+    {
+      "for": "Flower Hairpin",
+      "value": 7400000
+    },
+    {
+      "for": "Fried Grasshopper Legs",
+      "value": 2700000
+    },
+    {
+      "for": "Fried Monkey Tails",
+      "value": 0
+    },
+    {
+      "for": "Fried Scorpion Tails",
+      "value": 120000
+    },
+    {
+      "for": "Fried Sweet Potato",
+      "value": 330000
+    },
+    {
+      "for": "Frog Egg Squid Ink Soup",
+      "value": 3100000
+    },
+    {
+      "for": "Fruit Mix",
+      "value": 5000000
+    },
+    {
+      "for": "Gangster Scarf",
+      "value": 15000000
+    },
+    {
+      "for": "Giant Band Aid",
+      "value": 6700000
+    },
+    {
+      "for": "Giant Hornet Pet Evolution",
+      "value": 81000
+    },
+    {
+      "for": "Gigantic Majestic Goat (DEF)",
+      "value": 500000
+    },
+    {
+      "for": "Gladius",
+      "value": 660000
+    },
+    {
+      "for": "Glaive",
+      "value": 27000
+    },
+    {
+      "for": "Glaris Doll",
+      "value": 14000000
+    },
+    {
+      "for": "Gloom Under Night Pet Evolution",
+      "value": 6500000
+    },
+    {
+      "for": "Grand Peco Pet Evolution",
+      "value": 2700000
+    },
+    {
+      "for": "Grape Juice Herbal Tea",
+      "value": 690000
+    },
+    {
+      "for": "Great Nature",
+      "value": 4300000
+    },
+    {
+      "for": "Green Salad",
+      "value": 2300000
+    },
+    {
+      "for": "Grief for Greed",
+      "value": 64000
+    },
+    {
+      "for": "Guillotine",
+      "value": 130000
+    },
+    {
+      "for": "Guisarme",
+      "value": 3100000
+    },
+    {
+      "for": "Haedonggum",
+      "value": 8700000
+    },
+    {
+      "for": "Hahoe Mask",
+      "value": 180000
+    },
+    {
+      "for": "Hair Brush",
+      "value": 1600000
+    },
+    {
+      "for": "Hat of the Sun God",
+      "value": 160000
+    },
+    {
+      "for": "Headset",
+      "value": 160000
+    },
+    {
+      "for": "Heart Hairpin",
+      "value": 270000
+    },
+    {
+      "for": "Heavenly Fruit Juice",
+      "value": 3500000
+    },
+    {
+      "for": "Helm of Angel",
+      "value": 170000
+    },
+    {
+      "for": "Herb Marinade Beef",
+      "value": 390000
+    },
+    {
+      "for": "High Orc Pet Evolution",
+      "value": 64000
+    },
+    {
+      "for": "Honey Grape Juice",
+      "value": 0
+    },
+    {
+      "for": "Hot-blooded Headband",
+      "value": 390000
+    },
+    {
+      "for": "Hwergelmir's Tonic",
+      "value": 36000
+    },
+    {
+      "for": "Incredibly Spicy Curry",
+      "value": 660000
+    },
+    {
+      "for": "Katana",
+      "value": 240000
+    },
+    {
+      "for": "Khalitzburg Knight Card",
+      "value": 5100000
+    },
+    {
+      "for": "King Frog Hat [1]",
+      "value": 1000000
+    },
+    {
+      "for": "Knuckle Dusters",
+      "value": 170000
+    },
+    {
+      "for": "Koneko Hat",
+      "value": 5300000
+    },
+    {
+      "for": "Lance",
+      "value": 0
+    },
+    {
+      "for": "Lazy Smokie",
+      "value": 0
+    },
+    {
+      "for": "Leaf Lunatic Pet Evolution",
+      "value": 1300000
+    },
+    {
+      "for": "Level 1 Cookbook",
+      "value": 5600000
+    },
+    {
+      "for": "Level 4 Cookbook",
+      "value": 620000
+    },
+    {
+      "for": "Level 5 Cookbook",
+      "value": 37000
+    },
+    {
+      "for": "Little Angel Doll",
+      "value": 2700000
+    },
+    {
+      "for": "Longinus's Spear",
+      "value": 0
+    },
+    {
+      "for": "Love Guard [1]",
+      "value": 0
+    },
+    {
+      "for": "Lucky Soup",
+      "value": 200000
+    },
+    {
+      "for": "Lutie Lady's Pancake",
+      "value": 26000000
+    },
+    {
+      "for": "Mace",
+      "value": 20000
+    },
+    {
+      "for": "Magician Hat",
+      "value": 360000
+    },
+    {
+      "for": "Magistrate Hat [1]",
+      "value": 72000
+    },
+    {
+      "for": "Mailbreaker",
+      "value": 41000
+    },
+    {
+      "for": "Main Gauche",
+      "value": 110000
+    },
+    {
+      "for": "Marine Sphere Bottle",
+      "value": 53000
+    },
+    {
+      "for": "Mastering Pet Evolution",
+      "value": 3600000
+    },
+    {
+      "for": "Metaller Pet Evolution",
+      "value": 230000
+    },
+    {
+      "for": "Mistress Pet Evolution",
+      "value": 97000
+    },
+    {
+      "for": "Mitra [1]",
+      "value": 2000000
+    },
+    {
+      "for": "Mixed Juice",
+      "value": 46000
+    },
+    {
+      "for": "Model Training Hat",
+      "value": 460000
+    },
+    {
+      "for": "Moonlight Flower Hat",
+      "value": 52000
+    },
+    {
+      "for": "Moonlight Flower Pet Evolution",
+      "value": 2300000
+    },
+    {
+      "for": "Morroc Fruit Wine",
+      "value": 27000000
+    },
+    {
+      "for": "Mystic Frozen",
+      "value": 300000
+    },
+    {
+      "for": "Mythical Lion Mask",
+      "value": 6500000
+    },
+    {
+      "for": "Necktie",
+      "value": 140000
+    },
+    {
+      "for": "No Recipient",
+      "value": 0
+    },
+    {
+      "for": "Opera Phantom Mask",
+      "value": 150000
+    },
+    {
+      "for": "Orc Hero Helm",
+      "value": 31000
+    },
+    {
+      "for": "Orc Hero Pet Evolution",
+      "value": 0
+    },
+    {
+      "for": "Orc Trophy",
+      "value": 22000
+    },
+    {
+      "for": "Partizan",
+      "value": 0
+    },
+    {
+      "for": "Peach Cake",
+      "value": 5100000
+    },
+    {
+      "for": "Pecopeco Wing Ears",
+      "value": 97000
+    },
+    {
+      "for": "Ph.D Hat",
+      "value": 320000
+    },
+    {
+      "for": "Pirate Dagger",
+      "value": 21000
+    },
+    {
+      "for": "Pisces Crown",
+      "value": 150000
+    },
+    {
+      "for": "Pisces Diadem",
+      "value": 56000
+    },
+    {
+      "for": "Plant Bottle",
+      "value": 71000
+    },
+    {
+      "for": "Poison Bottle",
+      "value": 490000
+    },
+    {
+      "for": "Pretend Murdered",
+      "value": 2800000
+    },
+    {
+      "for": "Puppy Hat",
+      "value": 970000
+    },
+    {
+      "for": "Purple Cowboy Hat",
+      "value": 660000
+    },
+    {
+      "for": "Quadrille",
+      "value": 46000
+    },
+    {
+      "for": "Raccoon Hat",
+      "value": 11000000
+    },
+    {
+      "for": "Rainbow Eggshell",
+      "value": 20000000
+    },
+    {
+      "for": "Rainbow Scarf",
+      "value": 4800000
+    },
+    {
+      "for": "Rapier",
+      "value": 880000
+    },
+    {
+      "for": "Red Blood",
+      "value": 1700000
+    },
+    {
+      "for": "Red Ribbon",
+      "value": 130000
+    },
+    {
+      "for": "Renown Detective's Cap [1]",
+      "value": 24000
+    },
+    {
+      "for": "Rideword Hat (RWH)",
+      "value": 0
+    },
+    {
+      "for": "Rigid Nightmare Terror Pet Evolution",
+      "value": 160000
+    },
+    {
+      "for": "Rough Wind",
+      "value": 3000000
+    },
+    {
+      "for": "Royal Family Tea",
+      "value": 220000
+    },
+    {
+      "for": "Rudra Bow",
+      "value": 74000
+    },
+    {
+      "for": "Saber",
+      "value": 320000
+    },
+    {
+      "for": "Sakkat",
+      "value": 3600000
+    },
+    {
+      "for": "Satanic Bone Helm",
+      "value": 110000
+    },
+    {
+      "for": "Savage Pet Evolution",
+      "value": 620000
+    },
+    {
+      "for": "Schweizersabel",
+      "value": 120000
+    },
+    {
+      "for": "Scimitar",
+      "value": 5600000
+    },
+    {
+      "for": "Sea-Otter Hat",
+      "value": 1300000
+    },
+    {
+      "for": "Seasoned Jellyfish",
+      "value": 0
+    },
+    {
+      "for": "Shiny Marinade Beef",
+      "value": 2900000
+    },
+    {
+      "for": "Skelion Pet Evolution",
+      "value": 42000
+    },
+    {
+      "for": "Skull Cap",
+      "value": 120000
+    },
+    {
+      "for": "Slash",
+      "value": 220000
+    },
+    {
+      "for": "Slaughter",
+      "value": 75000
+    },
+    {
+      "for": "Slayer",
+      "value": 2000000
+    },
+    {
+      "for": "Smasher",
+      "value": 5000000
+    },
+    {
+      "for": "Sombrero",
+      "value": 490000
+    },
+    {
+      "for": "Spear",
+      "value": 0
+    },
+    {
+      "for": "Special Meat Stew",
+      "value": 780000
+    },
+    {
+      "for": "Spicy Fried Bao",
+      "value": 4200000
+    },
+    {
+      "for": "Spore Hat",
+      "value": 90000
+    },
+    {
+      "for": "Statue Of Baby Angel",
+      "value": 29000
+    },
+    {
+      "for": "Steamed Ancient Lips",
+      "value": 29000
+    },
+    {
+      "for": "Steamed Crab Nippers",
+      "value": 3300000
+    },
+    {
+      "for": "Steamed Desert Scorpions",
+      "value": 0
+    },
+    {
+      "for": "Steamed Tongue",
+      "value": 29000000
+    },
+    {
+      "for": "Steel",
+      "value": 970000
+    },
+    {
+      "for": "Stop Post",
+      "value": 24000000
+    },
+    {
+      "for": "Striped Hairband",
+      "value": 3700000
+    },
+    {
+      "for": "Studded Knuckles",
+      "value": 2200000
+    },
+    {
+      "for": "Stunner",
+      "value": 0
+    },
+    {
+      "for": "Sumptuous Feast",
+      "value": 870000
+    },
+    {
+      "for": "Sunday Hat",
+      "value": 55000
+    },
+    {
+      "for": "Sword",
+      "value": 0
+    },
+    {
+      "for": "Sword Mace",
+      "value": 650000
+    },
+    {
+      "for": "Swordbreaker",
+      "value": 29000000
+    },
+    {
+      "for": "Teddybear Hat",
+      "value": 60000
+    },
+    {
+      "for": "Temporal Boots [0]",
+      "value": 1300000
+    },
+    {
+      "for": "Tendon Satay",
+      "value": 11000000
+    },
+    {
+      "for": "Tentacle Cheese Gratin",
+      "value": 5600000
+    },
+    {
+      "for": "Tirfing",
+      "value": 160000
+    },
+    {
+      "for": "Tjungkuletti",
+      "value": 52000
+    },
+    {
+      "for": "Trident",
+      "value": 93000
+    },
+    {
+      "for": "Tristan XII",
+      "value": 2300000
+    },
+    {
+      "for": "Tropical Fruit Hat",
+      "value": 330000
+    },
+    {
+      "for": "Tsurugi",
+      "value": 2800000
+    },
+    {
+      "for": "Tulip Hairpin",
+      "value": 1100000
+    },
+    {
+      "for": "Two-Handed Axe",
+      "value": 26000000
+    },
+    {
+      "for": "Two-Handed Sword",
+      "value": 850000
+    },
+    {
+      "for": "Umbala Spirit",
+      "value": 28000
+    },
+    {
+      "for": "Upgraded Temporal Boots [1]",
+      "value": 39000
+    },
+    {
+      "for": "Valkyrie Helm",
+      "value": 53000
+    },
+    {
+      "for": "Vanilmirth Hat",
+      "value": 52000
+    },
+    {
+      "for": "Waghnak",
+      "value": 230000
+    },
+    {
+      "for": "Welding Mask",
+      "value": 120000
+    },
+    {
+      "for": "Well-Chewed Pencil",
+      "value": 920000
+    },
+    {
+      "for": "White Knight Card",
+      "value": 240000
+    },
+    {
+      "for": "White Knight Pet Evolution",
+      "value": 590000
+    },
+    {
+      "for": "Whole Roast",
+      "value": 27000000
+    },
+    {
+      "for": "Wild Rose Pet Evolution",
+      "value": 22000000
+    },
+    {
+      "for": "Wind of Verdure",
+      "value": 2600000
+    },
+    {
+      "for": "Winter Hat",
+      "value": 5100000
+    },
+    {
+      "for": "Wonder Nutshell",
+      "value": 7900000
+    },
+    {
+      "for": "Yellow Potion",
+      "value": 0
+    }
+  ]
+}
