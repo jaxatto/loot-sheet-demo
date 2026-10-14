@@ -7,7 +7,6 @@ import SearchPalette from './components/SearchPalette.jsx';
 import WelcomeDialog from './components/WelcomeDialog.jsx';
 import LootPage from './pages/LootPage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
-import FeedbackPage from './pages/FeedbackPage.jsx';
 import ChangelogPage from './pages/ChangelogPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import { NOT_FOUND, useRoute } from './utils/route.js';
@@ -28,7 +27,6 @@ import TargetsPage from './admin/TargetsPage.jsx';
 /** Every page except the loot page: route name -> title and component. */
 const PAGES = {
   about: { title: 'About', Component: AboutPage },
-  feedback: { title: 'Feedback', Component: FeedbackPage },
   changelog: { title: 'Changelog', Component: ChangelogPage },
   [NOT_FOUND]: { title: 'Page not found', Component: NotFoundPage },
   ...(ADMIN_AVAILABLE && {

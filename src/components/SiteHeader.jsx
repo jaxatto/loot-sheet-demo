@@ -11,7 +11,6 @@ import { ROUTES, isAdminRoute } from '../utils/route.js';
 const NAV_LINKS = [
   { route: 'loot', label: 'Loot Sheet' },
   { route: 'about', label: 'About' },
-  { route: 'feedback', label: 'Feedback' },
   { route: 'changelog', label: 'Changelog' },
   ...(import.meta.env.DEV ? [{ route: 'admin', label: 'Admin' }] : []),
 ];

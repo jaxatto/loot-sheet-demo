@@ -5,7 +5,6 @@ import { BulletList, ExternalLink, Page, PageLink, Section, SubHeading } from '.
 import { Mark, NoIcon, Unknown, YesIcon } from '../components/StatusIcons.jsx';
 import { ALL_CATEGORIES, ALL_ITEM_TYPES, CATEGORY_DESCRIPTIONS, CATEGORY_LINKS } from '../utils/labels.js';
 import { ROUTES } from '../utils/route.js';
-import { CONTRIBUTING_URL } from '../config.js';
 import { OVERCHARGE_LEVEL, OVERCHARGE_PERCENT } from '../utils/prices.js';
 
 const CONTENTS = [
@@ -15,7 +14,6 @@ const CONTENTS = [
   { id: 'tips', title: 'Tips' },
   { id: 'data', title: 'Data sources' },
   { id: 'privacy', title: 'Privacy' },
-  { id: 'help', title: 'Found a mistake or want to help?' },
 ];
 
 /** What the site is, how to use it, how to read it, and where the data comes from. */
@@ -125,13 +123,6 @@ export default function AboutPage() {
       <Section id="privacy" title="Privacy">
         <p>
           This demo has no analytics and sets no cookies. Your last search and filters are kept in your browser only.
-        </p>
-      </Section>
-
-      <Section id="help" title="Found a mistake or want to help?">
-        <p>
-          See <PageLink href={ROUTES.feedback}>Feedback</PageLink> for ways to get a problem fixed, or read the{' '}
-          <ExternalLink href={CONTRIBUTING_URL}>contributing guide</ExternalLink> to edit the data yourself.
         </p>
       </Section>
     </Page>

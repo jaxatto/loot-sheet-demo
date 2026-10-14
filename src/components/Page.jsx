@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { scrollToId } from '../utils/scroll.js';
 
 /**
- * Building blocks for text pages (About, Feedback, Contribute, Changelog),
+ * Building blocks for text pages (About, Changelog),
  * so they all share one heading scale and layout:
  *   page title  (h1) 30px bold
  *   section     (h2) 20px semibold

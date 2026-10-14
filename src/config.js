@@ -5,18 +5,11 @@
 /** The GitHub repository for this project. */
 export const GITHUB_REPO_URL = 'https://github.com/jaxatto/loot-sheet-demo';
 
-/** Discord thread for feedback and questions. Set to null to hide it. */
-export const DISCORD_FEEDBACK_THREAD_URL = null;
-
-
 /**
  * Umami website ID for visit counts (see utils/analytics.js), from the
  * website's settings on https://cloud.umami.is. Set to null to turn them off.
  */
 export const UMAMI_WEBSITE_ID = null;
-
-/** The contributing guide on GitHub (how to edit the item data). */
-export const CONTRIBUTING_URL = `${GITHUB_REPO_URL}#readme`;
 
 /**
  * Actions in the last column of each table row (shown on hover or focus) and at

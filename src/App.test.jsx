@@ -60,7 +60,6 @@ describe('App', { timeout: 30_000 }, () => {
   it('opens the other pages from their links', async () => {
     for (const [hash, title] of [
       ['#/about', 'About'],
-      ['#/feedback', 'Feedback'],
       ['#/changelog', 'Changelog'],
     ]) {
       await openPage(hash);

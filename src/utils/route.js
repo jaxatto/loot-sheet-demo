@@ -30,7 +30,6 @@ const ADMIN_ROUTES = import.meta.env.DEV
 export const ROUTES = {
   loot: '#/',
   about: '#/about',
-  feedback: '#/feedback',
   changelog: '#/changelog',
   ...ADMIN_ROUTES,
 };
