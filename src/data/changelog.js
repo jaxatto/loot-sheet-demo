@@ -9,11 +9,11 @@ export const CHANGELOG = [
   {
     version: '1.7.0',
     date: '2026-10-14',
-    title: 'Admin mode opens up, and a note on every sample link',
+    title: 'Admin mode opens up to everyone',
     changes: [
       { type: 'Added', text: 'Anyone can try admin mode: type a price into the table and the suggested action updates.' },
       { type: 'Added', text: 'A "Reset my changes" button on the Admin page puts the sample data back.' },
-      { type: 'Changed', text: 'Links to GitHub show a short note that this is a sample, instead of leaving the page.' },
+      { type: 'Changed', text: 'The GitHub links open this project\'s page.' },
       { type: 'Fixed', text: 'Undo after a price edit now also puts back the action that edit changed.' },
     ],
   },

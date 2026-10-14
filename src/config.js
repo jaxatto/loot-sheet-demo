@@ -5,7 +5,7 @@ import { FlagIcon } from '@heroicons/react/24/outline';
  */
 
 /** The GitHub repository for this project. */
-export const GITHUB_REPO_URL = 'https://github.com/example-user/loot-sheet-demo';
+export const GITHUB_REPO_URL = 'https://github.com/jaxatto/loot-sheet-demo';
 
 /** Discord thread for feedback and questions. Set to null to hide it. */
 export const DISCORD_FEEDBACK_THREAD_URL = null;
@@ -18,10 +18,7 @@ export const DISCORD_FEEDBACK_THREAD_URL = null;
 export const UMAMI_WEBSITE_ID = null;
 
 /** The contributing guide on GitHub (how to edit the item data). */
-export const CONTRIBUTING_URL = `${GITHUB_REPO_URL}/blob/main/CONTRIBUTING.md`;
-
-/** Name of the issue form in .github/ISSUE_TEMPLATE/ used for item reports. */
-const ITEM_REPORT_TEMPLATE = 'item-report.yml';
+export const CONTRIBUTING_URL = `${GITHUB_REPO_URL}#readme`;
 
 /**
  * Link to a new GitHub issue for one item, with the item already filled in.
@@ -31,7 +28,6 @@ const ITEM_REPORT_TEMPLATE = 'item-report.yml';
 export function itemReportUrl(item) {
   const itemText = item.itemId ? `${item.name} (#${item.itemId})` : item.name;
   const params = new URLSearchParams({
-    template: ITEM_REPORT_TEMPLATE,
     title: `[Item] ${item.name}`,
     item: itemText,
   });

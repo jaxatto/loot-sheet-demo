@@ -17,7 +17,6 @@ import { isPaletteShortcut } from './utils/shortcut.js';
 import { AdminProvider } from './admin/AdminContext.jsx';
 import { ADMIN_AVAILABLE, useAdmin } from './admin/useAdmin.js';
 import AdminOverviewPage from './admin/AdminOverviewPage.jsx';
-import SampleNotice from './components/SampleNotice.jsx';
 import NeedsPricePage from './admin/NeedsPricePage.jsx';
 import PastePricesPage from './admin/PastePricesPage.jsx';
 import SuggestionsPage from './admin/SuggestionsPage.jsx';
@@ -110,7 +109,6 @@ export default function App() {
         <WelcomeDialog open={welcomeOpen} onClose={closeWelcome} />
         <AppSearch open={searchOpen} onClose={closeSearch} />
         <BackToTop textPage={route !== 'loot'} raised={route === 'loot'} />
-        <SampleNotice />
       </div>
     </AdminProvider>
   );
