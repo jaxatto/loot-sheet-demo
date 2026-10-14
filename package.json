@@ -12,7 +12,8 @@
     "validate": "node scripts/validate.mjs",
     "lint": "eslint .",
     "test": "vitest run",
-    "sync:icons": "node scripts/sync-icons.mjs"
+    "sync:icons": "node scripts/sync-icons.mjs",
+    "deploy": "sh scripts/deploy.sh"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

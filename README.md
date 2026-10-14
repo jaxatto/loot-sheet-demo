@@ -30,6 +30,8 @@ Then open http://localhost:5173/loot-sheet-demo/
 | `npm run validate` | Checks `src/data/loot.json` against the schema and rules. |
 | `npm run lint` | Runs ESLint. |
 | `npm test` | Runs the unit tests. |
+| `npm run sync:icons` | Copies the item icons into `public/items/` (they are not committed). |
+| `npm run deploy` | Builds with the icons and publishes to the `gh-pages` branch (GitHub Pages). `DRY_RUN=1` skips the push; `DEPLOY_NAME` / `DEPLOY_EMAIL` set the (public) commit author. |
 | `npm run build` | Validates the data, then builds the site into `dist/`. |
 
 ## Notes
