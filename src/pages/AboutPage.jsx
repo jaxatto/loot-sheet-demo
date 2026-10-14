@@ -15,7 +15,7 @@ const CONTENTS = [
   { id: 'tips', title: 'Tips' },
   { id: 'data', title: 'Data sources' },
   { id: 'privacy', title: 'Privacy' },
-  { id: 'help', title: 'Help or report a mistake' },
+  { id: 'help', title: 'Found a mistake or want to help?' },
 ];
 
 /** What the site is, how to use it, how to read it, and where the data comes from. */
@@ -130,7 +130,7 @@ export default function AboutPage() {
 
       <Section id="help" title="Found a mistake or want to help?">
         <p>
-          See <PageLink href={ROUTES.feedback}>Feedback</PageLink> for ways to report problems, or read the{' '}
+          See <PageLink href={ROUTES.feedback}>Feedback</PageLink> for ways to get a problem fixed, or read the{' '}
           <ExternalLink href={CONTRIBUTING_URL}>contributing guide</ExternalLink> to edit the data yourself.
         </p>
       </Section>

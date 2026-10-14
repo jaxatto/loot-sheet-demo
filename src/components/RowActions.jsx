@@ -28,6 +28,7 @@ function linkProps(action, item) {
  *   item - one entry from loot.json
  */
 export default function RowActions({ item }) {
+  if (ROW_ACTIONS.length === 0) return null;
   if (ROW_ACTIONS.length === 1) {
     const [action] = ROW_ACTIONS;
     const Icon = action.icon;

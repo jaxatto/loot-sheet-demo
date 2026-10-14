@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import { GENERAL_ISSUE_URL } from '../config.js';
 
 /**
  * Catches an error thrown while drawing and shows a plain message instead of
@@ -33,10 +32,6 @@ export default class ErrorBoundary extends Component {
             <button type="button" className="button-small" onClick={() => window.location.reload()}>
               Reload
             </button>
-            <a href={GENERAL_ISSUE_URL} target="_blank" rel="noopener noreferrer" className="button-small">
-              Report the problem
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
           </div>
         </div>
       </div>

@@ -38,6 +38,6 @@ describe('ErrorBoundary', () => {
     log.mockRestore();
     expect(view.querySelector('[role="alert"] h1').textContent).toBe('Something went wrong');
     expect(view.querySelector('button').textContent).toBe('Reload');
-    expect(view.querySelector('a').href).toMatch(/issues/);
+    expect(view.querySelector('a')).toBeNull(); // no issue tracker in the demo
   });
 });
